@@ -23,9 +23,9 @@
           <a class="nav-link" href="{% url 'prices' %}">Lookup Prices</a>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0" method="POST" action="{% url 'prices' %}" enctype="multipart/form-data">
+      <form class="form-inline my-2 my-lg-0" method="POST" action="{% url 'prices' %}">
         {% csrf_token %}
-        <input class="form-control mr-sm-2" type="search" placeholder="Search Crypto" aria-label="Search">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search Crypto" aria-label="Search" name="quote">
         <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Lookup Prices</button>
       </form>
     </div>

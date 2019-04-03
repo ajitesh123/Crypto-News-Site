@@ -1,5 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  {{crypto}}
+  {% if notfound %}
+    <h3>{{notfound}}</h3>
+  {% else %}
+    {% if crypto.Response %}
+      Sorry, that symbol doesn't exist. Please try any symbol from the Home page.
+    {% endif %}
+    {% for key, value in crypto.DISPLAY.items %}
+            <div class="jumbotron">
+            <h1 class="display-4">{{key}}</h1>
+            <strong>Price</strong>: {{value.USD.PRICE}}<br>
+            <strong>Day High</strong>: {{value.USD.HIGHDAY}}<br>
+            <strong>Day Low</strong>: {{value.USD.LOWDAY}}<br>
+            <strong>Market Cap</strong>{{value.USD.MKTCAP}}<br>
+            </div>
+            <br><br>
+    {% endfor %}
+  {% endif %}
 {% endblock %}
